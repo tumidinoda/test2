@@ -19,6 +19,14 @@ protocol HanoiSolverDelegate {
 }
 //---------------------------------------------------------------------------------------------------------------
 class HanoiSolver{
+    var delegate:HanoiSolverDelegate?
+    
+    
+    func start(){
+        delegate?.gameDidBegin(brain: self)
+        
+        
+    }
     
     
     

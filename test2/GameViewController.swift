@@ -36,8 +36,9 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
         // Present the scene.
         skView.presentScene(myTowerView)
         
-        //start Hanoi
-        var myHanoiSolver=HanoiSolver()
+        //start Hanoi and register delegate
+        let myHanoiSolver=HanoiSolver()
+        myHanoiSolver.delegate=self
         
         
         
