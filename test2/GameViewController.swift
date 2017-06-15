@@ -10,8 +10,17 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, HanoiSolverDelegate {
+    func gameDidBegin(brain: HanoiSolver) {
+        //myCode
+    }
+
+    func gameDidEnd(brain: HanoiSolver) {
+        //myCode
+    }
+
     var myTowerView: HanoiView!
+    
     //---------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +35,9 @@ class GameViewController: UIViewController {
         
         // Present the scene.
         skView.presentScene(myTowerView)
+        
+        //start Hanoi
+        var myHanoiSolver=HanoiSolver()
         
         
         
