@@ -11,6 +11,13 @@ import SpriteKit
 
 class HanoiView: SKScene {
     
+    required init(coder aDecoder: NSCoder) {
+        fatalError("NSCoder not supported")
+    }
+    override init(size: CGSize) {
+        super.init(size: size)
+    }
+    //---------------------------------------------------------------------------------------------------------------
     
     
     
@@ -19,6 +26,7 @@ class HanoiView: SKScene {
     
     
     
+    //---------------------------------------------------------------------------------------------------------------
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
