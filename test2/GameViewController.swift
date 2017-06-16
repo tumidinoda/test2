@@ -13,11 +13,12 @@ import GameplayKit
 class GameViewController: UIViewController, HanoiSolverDelegate {
     //---------------------------------------------------------------------------------------------------------------
     func gameDidBegin(brain: HanoiSolver) {
-        //myCode
+        print("Game did begin")
     }
     
     func gameDidEnd(brain: HanoiSolver) {
-        //myCode
+        print("Game did begin")
+        
     }
     
     var myTowerView: HanoiView!
