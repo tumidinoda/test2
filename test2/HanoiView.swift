@@ -29,6 +29,9 @@ class HanoiView: SKScene {
         let stake3=SKSpriteNode(color: UIColor.blue, size: CGSize(width: 3, height: stakeHeight))
         stake3.position=CGPoint(x: self.frame.width*3/4, y: self.frame.height/2)
         addChild(stake3)
+        let bottomLine=SKSpriteNode(color: UIColor.blue, size: CGSize(width: self.frame.width, height: 3))
+        bottomLine.position=CGPoint(x: self.frame.width/2, y: 50)
+        addChild(bottomLine)
     }
     //---------------------------------------------------------------------------------------------------------------
     
