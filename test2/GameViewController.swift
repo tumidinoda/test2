@@ -11,6 +11,7 @@ import SpriteKit
 import GameplayKit
 //---------------------------------------------------------------------------------------------------------------
 class GameViewController: UIViewController, HanoiSolverDelegate {
+    var myTowerView: HanoiView!
     //---------------------------------------------------------------------------------------------------------------
     func gameDidBegin(brain: HanoiSolver) {
         print("Game did begin")
@@ -20,9 +21,6 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
         print("Game did begin")
         
     }
-    
-    var myTowerView: HanoiView!
-    
     //---------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
