@@ -9,16 +9,17 @@
 import UIKit
 import SpriteKit
 import GameplayKit
-
+//---------------------------------------------------------------------------------------------------------------
 class GameViewController: UIViewController, HanoiSolverDelegate {
+    //---------------------------------------------------------------------------------------------------------------
     func gameDidBegin(brain: HanoiSolver) {
         //myCode
     }
-
+    
     func gameDidEnd(brain: HanoiSolver) {
         //myCode
     }
-
+    
     var myTowerView: HanoiView!
     
     //---------------------------------------------------------------------------------------------------------------
