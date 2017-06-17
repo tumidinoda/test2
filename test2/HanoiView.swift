@@ -13,7 +13,9 @@ class HanoiView: SKScene {
     let towerA=0
     let towerB=1
     let towerC=2
-    var towers: [[Int]]=[[]]
+    var towers=[[]]
+    let disk1Width=5
+    let diskHeight=10
     //---------------------------------------------------------------------------------------------------------------
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoder not supported")
@@ -39,8 +41,11 @@ class HanoiView: SKScene {
     }
     //---------------------------------------------------------------------------------------------------------------
     func setTowers(numberDisks:Int){
-        towers[towerA].append(5)
-        towers[towerA].append(4)
+        for i in 1...numberDisks {
+            towers[towerA].append(SKSpriteNode(color: UIColor.blue, size: CGSize(width: disk1Width*5, height: diskHeight)))
+            
+            
+        }
         
         print(towers[towerA])
         
