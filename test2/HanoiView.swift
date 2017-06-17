@@ -14,7 +14,7 @@ class HanoiView: SKScene {
     let towerB=1
     let towerC=2
     var towers:[[SKSpriteNode]]=[[]]
-    let disk1Width=5
+    var disk1Width=5
     let diskHeight=10
     //---------------------------------------------------------------------------------------------------------------
     required init(coder aDecoder: NSCoder) {
@@ -22,6 +22,11 @@ class HanoiView: SKScene {
     }
     override init(size: CGSize) {
         super.init(size: size)
+        
+        disk1Width=Int(self.frame.width-4*5)/4/10
+        
+        
+        
         
         
         //draw tower stakes
@@ -43,18 +48,15 @@ class HanoiView: SKScene {
     func setTowers(numberDisks:Int){
         for i in 0...numberDisks-1 {
             //build up tower array
-            var disk=towers[towerA]
             towers[towerA].append(SKSpriteNode(color: UIColor.blue, size: CGSize(width: disk1Width*(numberDisks-i), height: diskHeight)))
-            towers[towerA][i].position=CGPoint(x: self.frame.width/4, y: 0)
+            towers[towerA][i].position=CGPoint(x: self.frame.width/4, y: self.frame.height)
             self.addChild(towers[towerA][i])
             
             //let disk fall onto stake
-            let moveDiskDown=SKAction.moveTo(y: CGFloat(50+i*diskHeight), duration: 2)
+     //       let delay=SKAction.wait(forDuration: 2)
+            let moveDiskDown=SKAction.moveTo(y: CGFloat((50+diskHeight/2)+i*diskHeight), duration: 2)
             let seq=SKAction.sequence([moveDiskDown])
-            
             towers[towerA][i].run(seq)
-            
-
             
             
             

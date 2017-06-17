@@ -41,7 +41,7 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
         myHanoiSolver.delegate=self
         
         
-        myTowerView.setTowers(numberDisks: 5)
+        myTowerView.setTowers(numberDisks: 10)
         
         
         
