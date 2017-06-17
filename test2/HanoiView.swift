@@ -10,6 +10,10 @@ import Foundation
 import SpriteKit
 
 class HanoiView: SKScene {
+    let towerA=0
+    let towerB=1
+    let towerC=2
+    var towers: [[Int]]=[[]]
     //---------------------------------------------------------------------------------------------------------------
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoder not supported")
@@ -34,14 +38,19 @@ class HanoiView: SKScene {
         addChild(bottomLine)
     }
     //---------------------------------------------------------------------------------------------------------------
-    
-    
-    
-    
-    
-    
-    
-    
+    func setTowers(numberDisks:Int){
+        towers[towerA].append(5)
+        towers[towerA].append(4)
+        
+        print(towers[towerA])
+        
+        
+    }
+    //---------------------------------------------------------------------------------------------------------------
+    func drawTowers(){
+        
+        
+    }
     //---------------------------------------------------------------------------------------------------------------
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
