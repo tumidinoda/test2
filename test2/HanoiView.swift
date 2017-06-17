@@ -55,19 +55,20 @@ class HanoiView: SKScene {
     }
     //---------------------------------------------------------------------------------------------------------------
     func setTowers(numberDisks:Int){
-        for i in stride(from: numberDisks, through: 1, by: -1){
-            print(i)
- 
+        //       for i in stride(from: numberDisks, through: 1, by: -1){
+        //           print(i)
+        
+        for i in 0 ... numberDisks-1 {
+            
             //build up tower array
-            disks.append(SKSpriteNode(color: UIColor.blue, size: CGSize(width: disk1Width*(numberDisks-i), height: diskHeight)))
-            disks[numberDisks-i].position=CGPoint(x: self.frame.width/4, y: self.frame.height)
-            self.addChild(disks[numberDisks-i])
+            disks.append(SKSpriteNode(color: UIColor.blue, size: CGSize(width: disk1Width*(i+1), height: diskHeight)))
+            disks[i].position=CGPoint(x: self.frame.width/4, y: self.frame.height)
+            self.addChild(disks[i])
             
             //let disk fall onto stake
-            //       let delay=SKAction.wait(forDuration: 2)
-            let moveDiskDown=SKAction.moveTo(y: CGFloat((50+diskHeight/2)+i*diskHeight), duration: 2)
+            let moveDiskDown=SKAction.moveTo(y: CGFloat((50-diskHeight/2)+(numberDisks-i)*diskHeight), duration: 2)
             let seq=SKAction.sequence([moveDiskDown])
-            disks[numberDisks-i].run(seq)
+            disks[i].run(seq)
             
             
             
@@ -78,14 +79,15 @@ class HanoiView: SKScene {
     }
     //---------------------------------------------------------------------------------------------------------------
     func moveDisk(diskNo: Int,from: Int,to: Int){
-        let moveDiskUp=SKAction.moveTo(y: 50, duration: 2)
+        
+        let moveDiskUp=SKAction.moveTo(y: self.frame.height-50, duration: 2)
         towerHeight[from]-=1
         let moveDiskHor=SKAction.moveTo(x: towerPos[to], duration: 1)
-        let moveDiskDown=SKAction.moveTo(y: CGFloat(50+towerHeight[to]*diskHeight), duration: 2)
+        let moveDiskDown=SKAction.moveTo(y: CGFloat(50+diskHeight/2+towerHeight[to]*diskHeight), duration: 2)
         towerHeight[to]+=1
         
         let seq=SKAction.sequence([moveDiskUp,moveDiskHor,moveDiskDown])
-        disks[diskNo].run(seq)
+        disks[diskNo-1].run(seq)
         
         
     }
