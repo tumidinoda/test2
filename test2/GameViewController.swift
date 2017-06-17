@@ -18,7 +18,7 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
     }
     
     func moveDisk(disk: Int,from: Int,to: Int) {
-        print("Disk: \(disk) from: \(from) to: \(to)")
+        // print("Disk: \(disk) from: \(from) to: \(to)")
         myTowerView.moveDisk(diskNo: disk, from: from, to: to)
         
     }

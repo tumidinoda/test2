@@ -23,8 +23,9 @@ class HanoiView: SKScene {
     var diskHeight=10
     let bottomHeight=100
     
-    var delayTicTime=1 
+    var delayTicTime=1.0
     var spriteDelayTime=0.0
+    
     //---------------------------------------------------------------------------------------------------------------
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoder not supported")
@@ -34,20 +35,22 @@ class HanoiView: SKScene {
         
         disk1Width=Int(self.frame.width-4*5)/4/10
         diskHeight=Int(self.frame.height-100)/2/10
-        towerPos[towerA]=self.frame.width/4
-        towerPos[towerB]=self.frame.width/2
-        towerPos[towerC]=self.frame.width*3/4
+        
+        let hilf=CGFloat((self.frame.width-4*10)/6)
+        towerPos[towerA]=10+hilf
+        towerPos[towerB]=20+3*hilf
+        towerPos[towerC]=30+5*hilf
         
         //draw tower stakes
         let stakeHeight=Int(self.frame.height)-2*bottomHeight
         let stake1=SKSpriteNode(color: UIColor.blue, size: CGSize(width: 3, height: stakeHeight))
-        stake1.position=CGPoint(x: self.frame.width/4, y: self.frame.height/2)
+        stake1.position=CGPoint(x: towerPos[towerA], y: self.frame.height/2)
         addChild(stake1)
         let stake2=SKSpriteNode(color: UIColor.blue, size: CGSize(width: 3, height: stakeHeight))
-        stake2.position=CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+        stake2.position=CGPoint(x: towerPos[towerB], y: self.frame.height/2)
         addChild(stake2)
         let stake3=SKSpriteNode(color: UIColor.blue, size: CGSize(width: 3, height: stakeHeight))
-        stake3.position=CGPoint(x: self.frame.width*3/4, y: self.frame.height/2)
+        stake3.position=CGPoint(x: towerPos[towerC], y: self.frame.height/2)
         addChild(stake3)
         let bottomLine=SKSpriteNode(color: UIColor.blue, size: CGSize(width: self.frame.width, height: 3))
         bottomLine.position=CGPoint(x: self.frame.width/2, y: CGFloat(bottomHeight))
@@ -56,11 +59,11 @@ class HanoiView: SKScene {
     //---------------------------------------------------------------------------------------------------------------
     func setTowers(numberDisks:Int){
         
-        delayTicTime=delayTicTime/numberDisks
+        delayTicTime=delayTicTime/Double(numberDisks)
         for i in 0 ... numberDisks-1 {
             //build up tower array
             disks.append(SKSpriteNode(color: UIColor.blue, size: CGSize(width: disk1Width*(i+1), height: diskHeight)))
-            disks[i].position=CGPoint(x: self.frame.width/4, y: self.frame.height)
+            disks[i].position=CGPoint(x: towerPos[towerA], y: self.frame.height)
             self.addChild(disks[i])
             
             //let disk fall onto stake
@@ -69,6 +72,7 @@ class HanoiView: SKScene {
             let seq=SKAction.sequence([delay,moveDiskDown])
             self.disks[i].run(seq)
             spriteDelayTime=spriteDelayTime+delayTicTime
+            towerHeight[towerA]+=1
         }
     }
     
