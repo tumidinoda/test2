@@ -43,17 +43,8 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
         
         
         myTowerView.setTowers(numberDisks: 10)
-        //       myTowerView.moveDisk(diskNo: 1, from: 0, to: 2)
         myHanoiSolver.start(numberDisks: 10)
-        
-        
-        
     }
-    
-    
-    
-    
-    
     
     //---------------------------------------------------------------------------------------------------------------
     override var prefersStatusBarHidden: Bool {
