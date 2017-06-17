@@ -12,6 +12,7 @@ import GameplayKit
 //---------------------------------------------------------------------------------------------------------------
 class GameViewController: UIViewController, HanoiSolverDelegate {
     var myTowerView: HanoiView!
+    let myHanoiSolver=HanoiSolver()
     //---------------------------------------------------------------------------------------------------------------
     func gameDidBegin(brain: HanoiSolver) {
         print("Game did begin")
@@ -26,6 +27,15 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        //register delegates
+        myHanoiSolver.delegate=self
+        
+    }
+    
+    //---------------------------------------------------------------------------------------------------------------
+    @IBAction func startHanoi(_ sender: UIButton) {
+        
         // Configure the view.
         let skView = view as! SKView
         skView.isMultipleTouchEnabled = false
@@ -37,13 +47,10 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
         // Present the scene.
         skView.presentScene(myTowerView)
         
-        //start Hanoi and register delegate
-        let myHanoiSolver=HanoiSolver()
-        myHanoiSolver.delegate=self
+        let number=Int((sender.titleLabel?.text)!)!
+        myTowerView.setTowers(numberDisks: number)
+        myHanoiSolver.start(numberDisks: number)
         
-        
-        myTowerView.setTowers(numberDisks: 10)
-        myHanoiSolver.start(numberDisks: 10)
     }
     
     //---------------------------------------------------------------------------------------------------------------

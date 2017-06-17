@@ -32,6 +32,9 @@
                                         <state key="normal" title="2">
                                             <color key="titleColor" red="1" green="0.93591099564880498" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startHanoi:" destination="BV1-FR-VrT" eventType="touchUpInside" id="d8N-2q-SGx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aan-Zr-ueF">
                                         <rect key="frame" x="64" y="0.0" width="59.5" height="34"/>
@@ -40,6 +43,9 @@
                                         <state key="normal" title="3">
                                             <color key="titleColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startHanoi:" destination="BV1-FR-VrT" eventType="touchUpInside" id="WAJ-mR-uaw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQD-Co-Ga2">
                                         <rect key="frame" x="128.5" y="0.0" width="59" height="34"/>
@@ -48,6 +54,9 @@
                                         <state key="normal" title="4">
                                             <color key="titleColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startHanoi:" destination="BV1-FR-VrT" eventType="touchUpInside" id="KkJ-sE-lXU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g1-MX-Rl7">
                                         <rect key="frame" x="192.5" y="0.0" width="59" height="34"/>
@@ -56,6 +65,9 @@
                                         <state key="normal" title="5">
                                             <color key="titleColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startHanoi:" destination="BV1-FR-VrT" eventType="touchUpInside" id="kin-9f-Ft9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQL-KW-ANy">
                                         <rect key="frame" x="256.5" y="0.0" width="59" height="34"/>
@@ -64,6 +76,9 @@
                                         <state key="normal" title="6">
                                             <color key="titleColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startHanoi:" destination="BV1-FR-VrT" eventType="touchUpInside" id="M5I-uR-9vX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqj-HZ-ofI">
                                         <rect key="frame" x="320.5" y="0.0" width="59.5" height="34"/>
@@ -72,6 +87,9 @@
                                         <state key="normal" title="7">
                                             <color key="titleColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startHanoi:" destination="BV1-FR-VrT" eventType="touchUpInside" id="dJa-Y9-r0c"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5H-3j-PmE">
                                         <rect key="frame" x="385" y="0.0" width="59" height="34"/>
@@ -80,6 +98,9 @@
                                         <state key="normal" title="8">
                                             <color key="titleColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startHanoi:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hv9-gv-puh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UH5-IO-y81">
                                         <rect key="frame" x="449" y="0.0" width="59" height="34"/>
@@ -88,6 +109,9 @@
                                         <state key="normal" title="9">
                                             <color key="titleColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startHanoi:" destination="BV1-FR-VrT" eventType="touchUpInside" id="g7d-0Q-trV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
