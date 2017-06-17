@@ -13,7 +13,7 @@ class HanoiView: SKScene {
     let towerA=0
     let towerB=1
     let towerC=2
-    var towers=[[]]
+    var towers:[[SKSpriteNode]]=[[]]
     let disk1Width=5
     let diskHeight=10
     //---------------------------------------------------------------------------------------------------------------
@@ -41,13 +41,16 @@ class HanoiView: SKScene {
     }
     //---------------------------------------------------------------------------------------------------------------
     func setTowers(numberDisks:Int){
-        for i in 1...numberDisks {
-            towers[towerA].append(SKSpriteNode(color: UIColor.blue, size: CGSize(width: disk1Width*5, height: diskHeight)))
+        for i in 0...numberDisks-1 {
+            towers[towerA].append(SKSpriteNode(color: UIColor.blue, size: CGSize(width: disk1Width*(numberDisks-i), height: diskHeight)))
+            towers[towerA][i].position=CGPoint(x: self.frame.width/4, y: 0)
+            
+            
+            print(towers[towerA][i])
             
             
         }
         
-        print(towers[towerA])
         
         
     }
