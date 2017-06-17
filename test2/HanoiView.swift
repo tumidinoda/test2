@@ -23,7 +23,8 @@ class HanoiView: SKScene {
     var diskHeight=10
     let bottomHeight=100
     
-    var spriteDelayTime=0
+    var delayTicTime=1 
+    var spriteDelayTime=0.0
     //---------------------------------------------------------------------------------------------------------------
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoder not supported")
@@ -54,8 +55,9 @@ class HanoiView: SKScene {
     }
     //---------------------------------------------------------------------------------------------------------------
     func setTowers(numberDisks:Int){
+        
+        delayTicTime=delayTicTime/numberDisks
         for i in 0 ... numberDisks-1 {
-            
             //build up tower array
             disks.append(SKSpriteNode(color: UIColor.blue, size: CGSize(width: disk1Width*(i+1), height: diskHeight)))
             disks[i].position=CGPoint(x: self.frame.width/4, y: self.frame.height)
@@ -63,16 +65,10 @@ class HanoiView: SKScene {
             
             //let disk fall onto stake
             let delay=SKAction.wait(forDuration: Double(spriteDelayTime))
-            let moveDiskDown=SKAction.moveTo(y: CGFloat((bottomHeight-diskHeight/2)+(numberDisks-i)*diskHeight), duration: 1)
+            let moveDiskDown=SKAction.moveTo(y: CGFloat((bottomHeight-diskHeight/2)+(numberDisks-i)*diskHeight), duration: delayTicTime)
             let seq=SKAction.sequence([delay,moveDiskDown])
             self.disks[i].run(seq)
-            spriteDelayTime+=1
-            
-            //            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
-            //                // Put your code which should be executed with a delay here
-            //                self.disks[i].run(seq)
-            //            })
-            
+            spriteDelayTime=spriteDelayTime+delayTicTime
         }
     }
     
@@ -80,15 +76,15 @@ class HanoiView: SKScene {
     func moveDisk(diskNo: Int,from: Int,to: Int){
         
         let delay=SKAction.wait(forDuration: Double(spriteDelayTime))
-        let moveDiskUp=SKAction.moveTo(y: self.frame.height-50, duration: 1)
+        let moveDiskUp=SKAction.moveTo(y: self.frame.height-50, duration: delayTicTime*3)
         towerHeight[from]-=1
-        let moveDiskHor=SKAction.moveTo(x: towerPos[to], duration: 1)
-        let moveDiskDown=SKAction.moveTo(y: CGFloat(bottomHeight+diskHeight/2+towerHeight[to]*diskHeight), duration: 1)
+        let moveDiskHor=SKAction.moveTo(x: towerPos[to], duration: delayTicTime)
+        let moveDiskDown=SKAction.moveTo(y: CGFloat(bottomHeight+diskHeight/2+towerHeight[to]*diskHeight), duration: delayTicTime/3)
         towerHeight[to]+=1
         
         let seq=SKAction.sequence([delay,moveDiskUp,moveDiskHor,moveDiskDown])
         disks[diskNo-1].run(seq)
-        spriteDelayTime+=3
+        spriteDelayTime=spriteDelayTime+(delayTicTime*3+delayTicTime+delayTicTime/3)
     }
     //---------------------------------------------------------------------------------------------------------------
     override func update(_ currentTime: TimeInterval) {
