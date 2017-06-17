@@ -9,12 +9,8 @@
 import Foundation
 //---------------------------------------------------------------------------------------------------------------
 protocol HanoiSolverDelegate {
-    // Invoked when the current round of Swiftris ends
-    func gameDidBegin(brain: HanoiSolver)
-    
-    // Invoked after a new game has begun
+    // inform Controler about move
     func moveDisk(disk: Int,from: Int,to: Int)
-    
     
 }
 //---------------------------------------------------------------------------------------------------------------
@@ -32,9 +28,7 @@ class HanoiSolver{
     
     //---------------------------------------------------------------------------------------------------------------
     func start(numberDisks: Int){
-        delegate?.gameDidBegin(brain: self)
         solve(disk: numberDisks, from: 0, to: 2)
-        
         
     }
 }

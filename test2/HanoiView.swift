@@ -33,13 +33,17 @@ class HanoiView: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
-        disk1Width=Int(self.frame.width-4*5)/4/10
-        diskHeight=Int(self.frame.height-100)/2/10
+    }
+    //---------------------------------------------------------------------------------------------------------------
+    func setTowers(numberDisks:Int){
+        //init some drawing parameters
+        disk1Width=Int(self.frame.width-4*5)/4/numberDisks
+        diskHeight=Int(self.frame.height-100)/2/numberDisks
         
-        let hilf=CGFloat((self.frame.width-4*10)/6)
-        towerPos[towerA]=10+hilf
-        towerPos[towerB]=20+3*hilf
-        towerPos[towerC]=30+5*hilf
+        let one6th=CGFloat((self.frame.width)/6)
+        towerPos[towerA]=one6th
+        towerPos[towerB]=3*one6th
+        towerPos[towerC]=5*one6th
         
         //draw tower stakes
         let stakeHeight=Int(self.frame.height)-2*bottomHeight
@@ -55,10 +59,8 @@ class HanoiView: SKScene {
         let bottomLine=SKSpriteNode(color: UIColor.blue, size: CGSize(width: self.frame.width, height: 3))
         bottomLine.position=CGPoint(x: self.frame.width/2, y: CGFloat(bottomHeight))
         addChild(bottomLine)
-    }
-    //---------------------------------------------------------------------------------------------------------------
-    func setTowers(numberDisks:Int){
         
+        //draw disks
         delayTicTime=delayTicTime/Double(numberDisks)
         for i in 0 ... numberDisks-1 {
             //build up tower array
@@ -90,10 +92,5 @@ class HanoiView: SKScene {
         disks[diskNo-1].run(seq)
         spriteDelayTime=spriteDelayTime+(delayTicTime*3+delayTicTime+delayTicTime/3)
     }
-    //---------------------------------------------------------------------------------------------------------------
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-        
-        
-    }
+
 }

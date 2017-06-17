@@ -12,29 +12,18 @@ import GameplayKit
 //---------------------------------------------------------------------------------------------------------------
 class GameViewController: UIViewController, HanoiSolverDelegate {
     var myTowerView: HanoiView!
-    let myHanoiSolver=HanoiSolver()
-    //---------------------------------------------------------------------------------------------------------------
-    func gameDidBegin(brain: HanoiSolver) {
-        print("Game did begin")
-    }
     
-    func moveDisk(disk: Int,from: Int,to: Int) {
-        // print("Disk: \(disk) from: \(from) to: \(to)")
-        myTowerView.moveDisk(diskNo: disk, from: from, to: to)
-        
-    }
     //---------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        //register delegates
-        myHanoiSolver.delegate=self
         
     }
     
     //---------------------------------------------------------------------------------------------------------------
     @IBAction func startHanoi(_ sender: UIButton) {
+        let myHanoiSolver=HanoiSolver()
+        //register delegates
+        myHanoiSolver.delegate=self
         
         // Configure the view.
         let skView = view as! SKView
@@ -54,7 +43,11 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
     }
     
     //---------------------------------------------------------------------------------------------------------------
-    override var prefersStatusBarHidden: Bool {
-        return true
+    func moveDisk(disk: Int,from: Int,to: Int) {
+        // print("Disk: \(disk) from: \(from) to: \(to)")
+        myTowerView.moveDisk(diskNo: disk, from: from, to: to)
+        
     }
+    
+    
 }
