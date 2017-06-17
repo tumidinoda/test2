@@ -17,8 +17,9 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
         print("Game did begin")
     }
     
-    func gameDidEnd(brain: HanoiSolver) {
-        print("Game did begin")
+    func moveDisk(disk: Int,from: Int,to: Int) {
+        print("Disk: \(disk) from: \(from) to: \(to)")
+        myTowerView.moveDisk(diskNo: disk, from: from, to: to)
         
     }
     //---------------------------------------------------------------------------------------------------------------
@@ -42,8 +43,8 @@ class GameViewController: UIViewController, HanoiSolverDelegate {
         
         
         myTowerView.setTowers(numberDisks: 10)
-        myTowerView.moveDisk(diskNo: 1, from: 0, to: 2)
-        
+        //       myTowerView.moveDisk(diskNo: 1, from: 0, to: 2)
+        myHanoiSolver.start(numberDisks: 10)
         
         
         
